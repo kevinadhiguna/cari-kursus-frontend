@@ -16,9 +16,7 @@ export default function Footer() {
             <div className="footer-social">
               <ul className="list-reset">
                 <li>
-                  <Link to="#">
-                    labalabaelit@gmail.com
-                  </Link>
+                  <Link to="#">labalabaelit@gmail.com</Link>
                 </li>
               </ul>
             </div>
@@ -27,16 +25,14 @@ export default function Footer() {
             <nav className="footer-nav">
               <ul className="list-reset">
                 <li>
-                  <Link to="#">Tentang Kami</Link>
+                  <Link to="/tentang">Tentang Kami</Link>
                 </li>
                 <li>
-                  <Link to="#">Semantik Web</Link>
+                  <Link to="/semantikweb">Semantik Web</Link>
                 </li>
               </ul>
             </nav>
-            <div className="footer-copyright">
-              &copy; 2020 Cari Kursus IT
-            </div>
+            <div className="footer-copyright">&copy; 2020 Cari Kursus IT</div>
           </div>
         </div>
       </div>

@@ -18,13 +18,13 @@ export default function Header(props) {
             <div className="header-nav-inner">
               <ul className="list-reset text-xxs header-nav-right">
                 <li>
-                  <Link to="#">Beranda</Link>
+                  <Link to="/">Beranda</Link>
                 </li>
                 <li>
-                  <Link to="#">Semua Kelas</Link>
+                  <Link to="/kelas">Semua Kelas</Link>
                 </li>
                 <li>
-                  <Link to="#">Penyedia Kursus</Link>
+                  <Link to="/platform">Penyedia Kursus</Link>
                 </li>
               </ul>
             </div>
