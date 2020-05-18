@@ -9,7 +9,7 @@ Repository Git ini adalah repository Git untuk FrontEnd projek semantik web. <br
 
 > Cara Penggunaan
 - Buka terminal di halaman utama
-- Ketik : <br/> `$ git clone https://github.com/fadillaharsa/CariKursus.git'
+- Ketik : <br/> `$ git clone https://github.com/fadillaharsa/CariKursus.git`
 - Kemudian mengubah direktori ke folder yang sudah diclone.
 - Lalu, Ketik : <br/> `$ npm start`
 - Web secara otomatis terbuka di browser.
