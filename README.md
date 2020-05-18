@@ -12,4 +12,4 @@ Cara Penggunaan
 
 Struktur Projek
 - Seluruh file tampilan tersimpan dalam folder src
-- File utama yang dirender adalah file App.js
+- File utama yang dirender adalah file App.js 
