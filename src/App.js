@@ -8,6 +8,7 @@ import Penyediakursus from "scenes/Penyediakursus";
 import Hasilpencarian from "scenes/Hasilpencarian";
 import Semantikweb from "scenes/Semantikweb";
 import Tentangkami from "scenes/Tentangkami";
+import Lihatkelas from "scenes/Lihatkelas";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/kelas" component={Daftarkelas}></Route>
         <Route exact path="/platform" component={Penyediakursus}></Route>
         <Route exact path="/hasil" component={Hasilpencarian}></Route>
+        <Route exact path="/kelas/:kelasId" component={Lihatkelas}></Route>
         <Route exact path="/tentang" component={Tentangkami}></Route>
         <Route exact path="/semantikweb" component={Semantikweb}></Route>
         <Route exact path="/" component={Homepage}></Route>

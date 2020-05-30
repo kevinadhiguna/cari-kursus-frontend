@@ -16,7 +16,9 @@ export default function Footer() {
             <div className="footer-social">
               <ul className="list-reset">
                 <li>
-                  <Link to="#">labalabaelit@gmail.com</Link>
+                  <a href="mailto:labalabaelit@gmail.com">
+                    labalabaelit@gmail.com
+                  </a>
                 </li>
               </ul>
             </div>

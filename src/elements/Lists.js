@@ -22,5 +22,5 @@ export default function Lists(props) {
 Lists.propTypes = {
   className: propTypes.string,
   data: propTypes.array,
-  isSmall: propTypes.bool
+  isSmall: propTypes.bool,
 };

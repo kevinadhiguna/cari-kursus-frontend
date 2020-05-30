@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import Fade from "react-reveal/Fade";
+import Axios from "axios";
+import { Link } from "react-router-dom";
 
 import Button from "elements/Button";
 import Section from "elements/Section";
@@ -13,210 +15,205 @@ import Footer from "parts/Footer";
 import FeatureTile01 from "assets/images/feature-tile-icon-01.svg";
 import FeatureTile02 from "assets/images/feature-tile-icon-02.svg";
 import FeatureTile03 from "assets/images/feature-tile-icon-03.svg";
-export default function Daftarkelas() {
-  const listCourse = [
-    {
-      name: "Android Development with Kotlin",
-      description:
-        "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-      platform: "Codepolitan",
-      features: [
-        { isChecked: true, content: "Vidio Selamanya" },
-        { isChecked: true, content: "Mendapat Source Code" },
-        { isChecked: true, content: "Mendapat Sertifikat" },
-        { isChecked: false, content: "Dapat Didownload" },
-        { isChecked: false, content: "Gratis Konsultasi" },
-      ],
-    },
-    {
-      name: "Android Development with Kotlin",
-      description:
-        "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-      platform: "Codepolitan",
-      features: [
-        { isChecked: true, content: "Vidio Selamanya" },
-        { isChecked: true, content: "Mendapat Source Code" },
-        { isChecked: true, content: "Mendapat Sertifikat" },
-        { isChecked: false, content: "Dapat Didownload" },
-        { isChecked: false, content: "Gratis Konsultasi" },
-      ],
-    },
-    {
-      name: "Android Development with Kotlin",
-      description:
-        "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-      platform: "Codepolitan",
-      features: [
-        { isChecked: true, content: "Vidio Selamanya" },
-        { isChecked: true, content: "Mendapat Source Code" },
-        { isChecked: true, content: "Mendapat Sertifikat" },
-        { isChecked: false, content: "Dapat Didownload" },
-        { isChecked: false, content: "Gratis Konsultasi" },
-      ],
-    },
-    {
-      name: "Android Development with Kotlin",
-      description:
-        "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-      platform: "Codepolitan",
-      features: [
-        { isChecked: true, content: "Vidio Selamanya" },
-        { isChecked: true, content: "Mendapat Source Code" },
-        { isChecked: true, content: "Mendapat Sertifikat" },
-        { isChecked: false, content: "Dapat Didownload" },
-        { isChecked: false, content: "Gratis Konsultasi" },
-      ],
-    },
-    {
-      name: "Android Development with Kotlin",
-      description:
-        "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-      platform: "Codepolitan",
-      features: [
-        { isChecked: true, content: "Vidio Selamanya" },
-        { isChecked: true, content: "Mendapat Source Code" },
-        { isChecked: true, content: "Mendapat Sertifikat" },
-        { isChecked: false, content: "Dapat Didownload" },
-        { isChecked: false, content: "Gratis Konsultasi" },
-      ],
-    },
-    {
-      name: "Android Development with Java",
-      description:
-        "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-      platform: "Dicoding",
-      features: [
-        { isChecked: true, content: "Vidio Selamanya" },
-        { isChecked: true, content: "Mendapat Source Code" },
-        { isChecked: true, content: "Mendapat Sertifikat" },
-        { isChecked: false, content: "Dapat Didownload" },
-        { isChecked: false, content: "Gratis Konsultasi" },
-      ],
-    },
-    {
-      name: "Android Development Ticket Nonton",
-      description:
-        "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-      platform: "Pixel Ninja",
-      features: [
-        { isChecked: true, content: "Vidio Selamanya" },
-        { isChecked: true, content: "Mendapat Source Code" },
-        { isChecked: true, content: "Mendapat Sertifikat" },
-        { isChecked: true, content: "Dapat Didownload" },
-        { isChecked: true, content: "Gratis Konsultasi" },
-      ],
-    },
-  ];
+export default class Daftarkelas extends Component {
+  constructor() {
+    super();
+    this.state = {
+      kursus: [],
+      name: "",
+      platform: "",
+      category: "",
+    };
+  }
 
-  return (
-    <div className="body-wrap">
-      <Header></Header>
-      <main className="site-content">
-        <Section className="hero illustration-section-01" isCenteredContent>
-          <div className="container-sm">
-            <div className="hero-inner section-inner">
-              <div className="hero-content">
-                <Fade bottom delay={500}>
-                  <h1 className="mt-0 mb-16">Daftar Kelas Informatika</h1>
-                </Fade>
-                <div className="container-xs">
+  componentWillMount() {
+    const url = "http://localhost:9000/api/course";
+    Axios.get(url).then((data) => {
+      this.setState({
+        kursus: data.data,
+      });
+    });
+  }
+
+  inputHandler = (e) => {
+    let updatedName = e.target.value;
+    this.setState({ name: updatedName });
+  };
+
+  inputHandler2 = (e) => {
+    let updatedCategory = e.target.value;
+    this.setState({ category: updatedCategory });
+  };
+
+  inputHandler3 = (e) => {
+    let updatedPlatform = e.target.value;
+    this.setState({ platform: updatedPlatform });
+  };
+
+  onSubmitHandler = (e) => {
+    e.preventDefault();
+    this.setState({
+      showName: true,
+    });
+    window.location.href =
+      "hasil?platform=" +
+      this.state.platform +
+      "&name=" +
+      this.state.name +
+      "&category=" +
+      this.state.category;
+  };
+
+  render() {
+    return (
+      <div className="body-wrap">
+        <Header></Header>
+        <main className="site-content">
+          <Section className="hero illustration-section-01" isCenteredContent>
+            <div className="container-sm">
+              <div className="hero-inner section-inner">
+                <div className="hero-content">
                   <Fade bottom delay={500}>
-                    <p className="mt-0 mb-32">
-                      Di bawah ini kami menampilkan seluruh kelas yang berhasil
-                      kami himpun.
-                    </p>
-                    <form>
-                      <input
-                        className="form-input"
-                        placeholder="Cari Kursus yang Diinginkan"
-                        type="text"
-                      />
-                      <select
-                        className="form-input"
-                        id="platform"
-                        name="platform"
-                      >
-                        <option value="">Pilih Penyedia Kursus</option>
-                        <option value="Codepolitan">Codepolitan</option>
-                        <option value="Dicoding">Dicoding</option>
-                        <option value="Sekolah Koding">Sekolah Koding</option>
-                        <option value="Pixel Ninja">Pixel Ninja</option>
-                        <option value="Build With Angga">
-                          Build With Angga
-                        </option>
-                      </select>
-                      <select
-                        className="form-input"
-                        id="platform"
-                        name="platform"
-                      >
-                        <option value="">Pilih Kategori</option>
-                        <option value="Codepolitan">Codepolitan</option>
-                        <option value="Dicoding">Dicoding</option>
-                        <option value="Sekolah Koding">Sekolah Koding</option>
-                        <option value="Pixel Ninja">Pixel Ninja</option>
-                        <option value="Build With Angga">
-                          Build With Angga
-                        </option>
-                      </select>
-                      <br></br>
-                      <input
-                        type="submit"
-                        className="button button-primary button-sm"
-                        value="Cari"
-                      />
-                    </form>
+                    <h1 className="mt-0 mb-16">Daftar Kelas Informatika</h1>
                   </Fade>
+                  <div className="container-xs">
+                    <Fade bottom delay={500}>
+                      <p className="mt-0 mb-32">
+                        Di bawah ini kami menampilkan seluruh kelas yang
+                        berhasil kami himpun.
+                      </p>
+                      <form onSubmit={this.onSubmitHandler}>
+                        <input
+                          className="form-input"
+                          placeholder="Cari Kursus yang Diinginkan"
+                          type="text"
+                          name="name"
+                          onChange={this.inputHandler}
+                          value={this.state.name}
+                        />
+                        <select
+                          className="form-input"
+                          id="platform"
+                          name="platform"
+                          onChange={this.inputHandler3}
+                          value={this.state.platform}
+                        >
+                          <option value="">Pilih Penyedia Kursus</option>
+                          <option value="buildwithangga">
+                            Build With Angga
+                          </option>
+                          <option value="Udemy">Udemy</option>
+                          <option value="Coursera">Coursera</option>
+                          <option value="edureka">Edureka</option>
+                        </select>
+                        <select
+                          className="form-input"
+                          id="category"
+                          name="category"
+                          onChange={this.inputHandler2}
+                          value={this.state.category}
+                        >
+                          <option value="">Pilih Kategori</option>
+                          <option value="Mobile Apps">Mobile Apps</option>
+                          <option value="Game Development">
+                            Game Development
+                          </option>
+                          <option value="Cloud Platform">Cloud Platform</option>
+                          <option value="Ethical Hacking">
+                            Ethical Hacking
+                          </option>
+                          <option value="Full-Stack Web Development">
+                            Full-Stack Web Development
+                          </option>
+                          <option value="Back-End Web Development">
+                            Back-End Web Development
+                          </option>
+                          <option value="DevOps">DevOps</option>
+                          <option value="Computer Network">
+                            Computer Network
+                          </option>
+                          <option value="Front-End Web Development">
+                            Front-End Web Development
+                          </option>
+                          <option value="Machine Learning">
+                            Machine Learning
+                          </option>
+                        </select>
+                        <br></br>
+                        <button
+                          type="submit"
+                          className="button button-primary button-sm"
+                          onClick={this.onSubmitHandler}
+                        >
+                          Cari
+                        </button>
+                      </form>
+                    </Fade>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Section>
+          </Section>
 
-        <Section className="pricing">
-          <div className="container">
-            <div className="pricing-inner section-inner has-top-divider">
-              <div className="tiles-wrap">
-                {listCourse.map((list, index) => (
-                  <Card hasShadow>
-                    <div class="pricing-item-content">
-                      <div class="pricing-item-header pb-24 mb-24">
-                        <div class="pricing-item-price mb-4">
-                          <span
-                            class="pricing-item-price-amount h1 pricing-switchable"
-                            data-pricing-monthly="34"
-                            data-pricing-yearly="27"
-                          >
-                            {list.name}
-                          </span>
+          <Section className="pricing">
+            <div className="container">
+              <div className="pricing-inner section-inner has-top-divider">
+                <div className="tiles-wrap">
+                  {this.state.kursus.map((list, index) => (
+                    <Card hasShadow>
+                      <div class="pricing-item-content">
+                        <div class="pricing-item-header pb-24 mb-24">
+                          <div class="pricing-item-price mb-4">
+                            <span
+                              class="pricing-item-price-amount h1 pricing-switchable"
+                              data-pricing-monthly="34"
+                              data-pricing-yearly="27"
+                            >
+                              {list.name}
+                            </span>
+                          </div>
+                          <div class="text-xs text-color-low">{list.desc}</div>
                         </div>
-                        <div class="text-xs text-color-low">
-                          {list.description}
+
+                        <div class="pricing-item-features mb-40">
+                          <div class="pricing-item-features-title h6 text-xs text-color-high mb-24">
+                            Platform: {list.platform}
+                            <br></br>
+                            Kategori: {list.category}
+                            <br></br>
+                            <br></br>
+                            {list.feature[0]}
+                            <br></br>
+                            {list.feature[1]}
+                            <br></br>
+                            {list.feature[2]}
+                            <br></br>
+                            {list.feature[3]}
+                            <br></br>
+                            {list.feature[4]}
+                            <br></br>
+                            {list.feature[5]}
+                            <br></br>
+                            {list.feature[6]}
+                          </div>
                         </div>
                       </div>
-
-                      <div class="pricing-item-features mb-40">
-                        <div class="pricing-item-features-title h6 text-xs text-color-high mb-24">
-                          Platform: {list.platform}
-                        </div>
-                        <Lists
-                          data={list.features}
-                          isSmall
-                          className="pricing-item-features-list mb-32"
-                        ></Lists>
+                      <div class="pricing-item-cta mb-8">
+                        <Link to={`/kelas/${list.id}`}>
+                          <Button isPrimary isBlock>
+                            Lihat Kelas
+                          </Button>
+                        </Link>
                       </div>
-                    </div>
-                    <div class="pricing-item-cta mb-8">
-                      <Button isBlock>Lihat Kelas</Button>
-                    </div>
-                  </Card>
-                ))}
+                    </Card>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </Section>
-      </main>
-      <Footer></Footer>
-    </div>
-  );
+          </Section>
+        </main>
+        <Footer></Footer>
+      </div>
+    );
+  }
 }
