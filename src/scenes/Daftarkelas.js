@@ -182,19 +182,11 @@ export default class Daftarkelas extends Component {
                             Kategori: {list.category}
                             <br></br>
                             <br></br>
-                            {list.feature[0]}
-                            <br></br>
-                            {list.feature[1]}
-                            <br></br>
-                            {list.feature[2]}
-                            <br></br>
-                            {list.feature[3]}
-                            <br></br>
-                            {list.feature[4]}
-                            <br></br>
-                            {list.feature[5]}
-                            <br></br>
-                            {list.feature[6]}
+                            {
+                              list.feature ? list.feature.map((feature, index) => {
+                                return <div key={index}> {feature} </div>;
+                              }) : ""
+                            }
                           </div>
                         </div>
                       </div>
