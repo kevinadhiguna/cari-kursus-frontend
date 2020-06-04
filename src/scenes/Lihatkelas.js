@@ -1,20 +1,12 @@
 import React, { Component } from "react";
 import Fade from "react-reveal/Fade";
 import Axios from "axios";
-import { Link } from "react-router-dom";
 
 import Button from "elements/Button";
 import Section from "elements/Section";
-import Card from "elements/Card";
-import Lists from "elements/Lists";
 import Header from "parts/Header";
-import Clients from "parts/Clients";
-import Feature from "parts/Feature";
-import Footer from "parts/Footer";
 
-import FeatureTile01 from "assets/images/feature-tile-icon-01.svg";
-import FeatureTile02 from "assets/images/feature-tile-icon-02.svg";
-import FeatureTile03 from "assets/images/feature-tile-icon-03.svg";
+import Footer from "parts/Footer";
 
 export default class Lihatkelas extends Component {
   constructor() {
