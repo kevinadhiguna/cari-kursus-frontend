@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Fade from "react-reveal/Fade";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import queryString from "query-string";
@@ -35,28 +34,25 @@ export default class Hasilpencarian extends Component {
       <div className="body-wrap">
         <Header></Header>
         <main className="site-content">
-          <Section className="hero illustration-section-01" isCenteredContent>
+          <Section className="hero" isCenteredContent>
             <div className="container-sm">
               <div className="hero-inner section-inner">
                 <div className="hero-content">
-                  <Fade bottom delay={500}>
-                    <h1 className="mt-0 mb-16">Hasil Pencarian</h1>
-                  </Fade>
+                  <h1 className="mt-0 mb-16">Hasil Pencarian</h1>
+
                   <div className="container-xs">
-                    <Fade bottom delay={500}>
-                      <p className="mt-0 mb-32">
-                        Menampilkan hasil pencarian kelas
-                        <br></br>
-                        <b>Judul: </b>
-                        {params.name}
-                        <br></br>
-                        <b>Platform: </b>
-                        {params.platform}
-                        <br></br>
-                        <b>Kategori: </b>
-                        {params.category}
-                      </p>
-                    </Fade>
+                    <p className="mt-0 mb-32">
+                      Menampilkan hasil pencarian kelas
+                      <br></br>
+                      <b>Judul: </b>
+                      {params.name}
+                      <br></br>
+                      <b>Platform: </b>
+                      {params.platform}
+                      <br></br>
+                      <b>Kategori: </b>
+                      {params.category}
+                    </p>
                   </div>
                 </div>
               </div>

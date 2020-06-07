@@ -30,7 +30,7 @@ export default class Lihatkelas extends Component {
       <div className="body-wrap">
         <Header></Header>
         <main className="site-content">
-          <Section className="hero illustration-section-01" isCenteredContent>
+          <Section className="hero" isCenteredContent>
             <div className="container-sm">
               <div className="hero-inner section-inner">
                 <div className="hero-content">
