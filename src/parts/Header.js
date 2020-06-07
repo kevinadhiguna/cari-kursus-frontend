@@ -1,35 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
 
 export default function Header(props) {
   return (
-    <header className="site-header">
+    <Container fluid bg="dark">
       <div className="container">
-        <div className="site-header-inner">
-          <div className="brand">
-            <h1 className="m-0">
-              <Link to="/">
-                <h2>Cari Kursus IT</h2>
-              </Link>
-            </h1>
-          </div>
-          <div id="header-nav" className="header-nav">
-            <div className="header-nav-inner">
-              <ul className="list-reset text-xxs header-nav-right">
-                <li>
-                  <Link to="/">Beranda</Link>
-                </li>
-                <li>
-                  <Link to="/kelas">Semua Kelas</Link>
-                </li>
-                <li>
-                  <Link to="/platform">Penyedia Kursus</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <Navbar collapseOnSelect expand="lg" variant="dark">
+          <Navbar.Brand href="/">
+            <h3>Cari Kursus IT</h3>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto"></Nav>
+            <Nav className="text-xxs">
+              <Nav.Link href="/">Beranda</Nav.Link>
+              <Nav.Link eventKey={2} href="/kelas">
+                Semua Kelas
+              </Nav.Link>
+              <Nav.Link eventKey={3} href="/platform">
+                Penyedia Kursus
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
-    </header>
+    </Container>
   );
 }

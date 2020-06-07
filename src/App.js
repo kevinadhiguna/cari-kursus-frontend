@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import "assets/css/style.css";
+
 import Homepage from "scenes/Homepage";
 import Daftarkelas from "scenes/Daftarkelas";
 import Penyediakursus from "scenes/Penyediakursus";
