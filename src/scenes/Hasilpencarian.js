@@ -30,6 +30,18 @@ export default class Hasilpencarian extends Component {
   render() {
     let path = this.props.location.search;
     let params = queryString.parse(path);
+    let name = params.name;
+    let platform = params.platform;
+    let category = params.category;
+    if (name == "") {
+      name = "-";
+    }
+    if (platform == "") {
+      platform = "-";
+    }
+    if (category == "") {
+      category = "-";
+    }
     return (
       <div className="body-wrap">
         <Header></Header>
@@ -41,17 +53,17 @@ export default class Hasilpencarian extends Component {
                   <h1 className="mt-0 mb-16">Hasil Pencarian</h1>
 
                   <div className="container-xs">
-                    <p className="mt-0 mb-32">
-                      Menampilkan hasil pencarian kelas
+                    <p className="mt-0">
+                      Menampilkan hasil pencarian kelas dengan
                       <br></br>
                       <b>Judul: </b>
-                      {params.name}
+                      {name}
                       <br></br>
                       <b>Platform: </b>
-                      {params.platform}
+                      {platform}
                       <br></br>
                       <b>Kategori: </b>
-                      {params.category}
+                      {category}
                     </p>
                   </div>
                 </div>
