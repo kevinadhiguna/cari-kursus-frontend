@@ -10,100 +10,6 @@ import Card from "elements/Card";
 import Header from "parts/Header";
 import Footer from "parts/Footer";
 
-const listCourse = [
-  {
-    name: "Android Development with Kotlin",
-    description:
-      "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-    platform: "Codepolitan",
-    features: [
-      { isChecked: true, content: "Vidio Selamanya" },
-      { isChecked: true, content: "Mendapat Source Code" },
-      { isChecked: true, content: "Mendapat Sertifikat" },
-      { isChecked: false, content: "Dapat Didownload" },
-      { isChecked: false, content: "Gratis Konsultasi" },
-    ],
-  },
-  {
-    name: "Android Development with Kotlin",
-    description:
-      "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-    platform: "Codepolitan",
-    features: [
-      { isChecked: true, content: "Vidio Selamanya" },
-      { isChecked: true, content: "Mendapat Source Code" },
-      { isChecked: true, content: "Mendapat Sertifikat" },
-      { isChecked: false, content: "Dapat Didownload" },
-      { isChecked: false, content: "Gratis Konsultasi" },
-    ],
-  },
-  {
-    name: "Android Development with Kotlin",
-    description:
-      "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-    platform: "Codepolitan",
-    features: [
-      { isChecked: true, content: "Vidio Selamanya" },
-      { isChecked: true, content: "Mendapat Source Code" },
-      { isChecked: true, content: "Mendapat Sertifikat" },
-      { isChecked: false, content: "Dapat Didownload" },
-      { isChecked: false, content: "Gratis Konsultasi" },
-    ],
-  },
-  {
-    name: "Android Development with Kotlin",
-    description:
-      "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-    platform: "Codepolitan",
-    features: [
-      { isChecked: true, content: "Vidio Selamanya" },
-      { isChecked: true, content: "Mendapat Source Code" },
-      { isChecked: true, content: "Mendapat Sertifikat" },
-      { isChecked: false, content: "Dapat Didownload" },
-      { isChecked: false, content: "Gratis Konsultasi" },
-    ],
-  },
-  {
-    name: "Android Development with Kotlin",
-    description:
-      "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-    platform: "Codepolitan",
-    features: [
-      { isChecked: true, content: "Vidio Selamanya" },
-      { isChecked: true, content: "Mendapat Source Code" },
-      { isChecked: true, content: "Mendapat Sertifikat" },
-      { isChecked: false, content: "Dapat Didownload" },
-      { isChecked: false, content: "Gratis Konsultasi" },
-    ],
-  },
-  {
-    name: "Android Development with Java",
-    description:
-      "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-    platform: "Dicoding",
-    features: [
-      { isChecked: true, content: "Vidio Selamanya" },
-      { isChecked: true, content: "Mendapat Source Code" },
-      { isChecked: true, content: "Mendapat Sertifikat" },
-      { isChecked: false, content: "Dapat Didownload" },
-      { isChecked: false, content: "Gratis Konsultasi" },
-    ],
-  },
-  {
-    name: "Android Development Ticket Nonton",
-    description:
-      "Belajar android development dengan bahasa pemrograman Kotlin selama 12 hari.",
-    platform: "Pixel Ninja",
-    features: [
-      { isChecked: true, content: "Vidio Selamanya" },
-      { isChecked: true, content: "Mendapat Source Code" },
-      { isChecked: true, content: "Mendapat Sertifikat" },
-      { isChecked: true, content: "Dapat Didownload" },
-      { isChecked: true, content: "Gratis Konsultasi" },
-    ],
-  },
-];
-
 export default class Hasilpencarian extends Component {
   constructor() {
     super();
@@ -112,7 +18,7 @@ export default class Hasilpencarian extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let path = this.props.location.search;
     let params = queryString.parse(path);
     const url = `http://localhost:9000/api/course/?platform=${params.platform}&name=${params.name}&category=${params.category}`;
@@ -163,36 +69,38 @@ export default class Hasilpencarian extends Component {
                 <div className="tiles-wrap">
                   {this.state.kursus.map((list, index) => (
                     <Card hasShadow>
-                      <div class="pricing-item-content">
-                        <div class="pricing-item-header pb-24 mb-24">
-                          <div class="pricing-item-price mb-4">
+                      <div className="pricing-item-content">
+                        <div className="pricing-item-header pb-24 mb-24">
+                          <div className="pricing-item-price mb-4">
                             <span
-                              class="pricing-item-price-amount h1 pricing-switchable"
+                              className="pricing-item-price-amount h1 pricing-switchable"
                               data-pricing-monthly="34"
                               data-pricing-yearly="27"
                             >
                               {list.name}
                             </span>
                           </div>
-                          <div class="text-xs text-color-low">{list.desc}</div>
+                          <div className="text-xs text-color-low">
+                            {list.desc}
+                          </div>
                         </div>
 
-                        <div class="pricing-item-features mb-40">
-                          <div class="pricing-item-features-title h6 text-xs text-color-high mb-24">
+                        <div className="pricing-item-features mb-40">
+                          <div className="pricing-item-features-title h6 text-xs text-color-high mb-24">
                             Platform: {list.platform}
                             <br></br>
                             Kategori: {list.category}
                             <br></br>
                             <br></br>
-                            {
-                              list.feature ? list.feature.map((feature, index) => {
-                                return <div key={index}> {feature} </div>;
-                              }) : ""
-                            }
+                            {list.feature
+                              ? list.feature.map((feature, index) => {
+                                  return <div key={index}> {feature} </div>;
+                                })
+                              : ""}
                           </div>
                         </div>
                       </div>
-                      <div class="pricing-item-cta mb-8">
+                      <div className="pricing-item-cta mb-8">
                         <Link to={`/kelas/${list.id}`}>
                           <Button isPrimary isBlock>
                             Lihat Kelas

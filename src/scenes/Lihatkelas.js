@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Fade from "react-reveal/Fade";
 import Axios from "axios";
 
 import Button from "elements/Button";
@@ -16,7 +15,7 @@ export default class Lihatkelas extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let kelasId = this.props.match.params.kelasId;
     const url = `http://localhost:9000/api/course/${kelasId}`;
     Axios.get(url).then((data) => {
@@ -35,22 +34,19 @@ export default class Lihatkelas extends Component {
             <div className="container-sm">
               <div className="hero-inner section-inner">
                 <div className="hero-content">
-                  <Fade bottom delay={500}>
-                    <h1 className="mt-0 mb-16"> {this.state.kursus.name}</h1>
-                  </Fade>
+                  <h1 className="mt-0 mb-16"> {this.state.kursus.name}</h1>
+
                   <div className="container-xs">
-                    <Fade bottom delay={500}>
-                      <p className="mt-0 mb-32">{this.state.kursus.desc}</p>
-                      <p className="mt-0 mb-32">
-                        Platform: {this.state.kursus.platform}
-                        <br></br>
-                        Kategori: {this.state.kursus.category}
-                        <br></br>
-                      </p>
-                      <a target="_blank" href={`${this.state.kursus.link}`}>
-                        <Button isPrimary>Lihat Kelas</Button>
-                      </a>
-                    </Fade>
+                    <p className="mt-0 mb-32">{this.state.kursus.desc}</p>
+                    <p className="mt-0 mb-32">
+                      Platform: {this.state.kursus.platform}
+                      <br></br>
+                      Kategori: {this.state.kursus.category}
+                      <br></br>
+                    </p>
+                    <a href={`${this.state.kursus.link}`}>
+                      <Button isPrimary>Lihat Kelas</Button>
+                    </a>
                   </div>
                 </div>
               </div>

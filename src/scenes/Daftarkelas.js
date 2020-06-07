@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Fade from "react-reveal/Fade";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -21,7 +20,7 @@ export default class Daftarkelas extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const url = "http://localhost:9000/api/course";
     Axios.get(url).then((data) => {
       this.setState({
@@ -68,82 +67,75 @@ export default class Daftarkelas extends Component {
             <div className="container-sm">
               <div className="hero-inner section-inner">
                 <div className="hero-content">
-                  <Fade bottom delay={500}>
-                    <h1 className="mt-0 mb-16">Daftar Kelas Informatika</h1>
-                  </Fade>
+                  <h1 className="mt-0 mb-16">Daftar Kelas Informatika</h1>
+
                   <div className="container-xs">
-                    <Fade bottom delay={500}>
-                      <p className="mt-0 mb-32">
-                        Di bawah ini kami menampilkan seluruh kelas yang
-                        berhasil kami himpun.
-                      </p>
-                      <form onSubmit={this.onSubmitHandler}>
-                        <input
-                          className="form-input"
-                          placeholder="Cari Kursus yang Diinginkan"
-                          type="text"
-                          name="name"
-                          onChange={this.inputHandler}
-                          value={this.state.name}
-                        />
-                        <select
-                          className="form-input"
-                          id="platform"
-                          name="platform"
-                          onChange={this.inputHandler3}
-                          value={this.state.platform}
-                        >
-                          <option value="">Pilih Penyedia Kursus</option>
-                          <option value="buildwithangga">
-                            Build With Angga
-                          </option>
-                          <option value="Udemy">Udemy</option>
-                          <option value="Coursera">Coursera</option>
-                          <option value="edureka">Edureka</option>
-                        </select>
-                        <select
-                          className="form-input"
-                          id="category"
-                          name="category"
-                          onChange={this.inputHandler2}
-                          value={this.state.category}
-                        >
-                          <option value="">Pilih Kategori</option>
-                          <option value="Mobile Apps">Mobile Apps</option>
-                          <option value="Game Development">
-                            Game Development
-                          </option>
-                          <option value="Cloud Platform">Cloud Platform</option>
-                          <option value="Ethical Hacking">
-                            Ethical Hacking
-                          </option>
-                          <option value="Full-Stack Web Development">
-                            Full-Stack Web Development
-                          </option>
-                          <option value="Back-End Web Development">
-                            Back-End Web Development
-                          </option>
-                          <option value="DevOps">DevOps</option>
-                          <option value="Computer Network">
-                            Computer Network
-                          </option>
-                          <option value="Front-End Web Development">
-                            Front-End Web Development
-                          </option>
-                          <option value="Machine Learning">
-                            Machine Learning
-                          </option>
-                        </select>
-                        <br></br>
-                        <button
-                          type="submit"
-                          className="button button-primary button-sm"
-                          onClick={this.onSubmitHandler}
-                        >
-                          Cari
-                        </button>
-                      </form>
-                    </Fade>
+                    <p className="mt-0 mb-32">
+                      Di bawah ini kami menampilkan seluruh kelas yang berhasil
+                      kami himpun.
+                    </p>
+                    <form onSubmit={this.onSubmitHandler}>
+                      <input
+                        className="form-input"
+                        placeholder="Cari Kursus yang Diinginkan"
+                        type="text"
+                        name="name"
+                        onChange={this.inputHandler}
+                        value={this.state.name}
+                      />
+                      <select
+                        className="form-input"
+                        id="platform"
+                        name="platform"
+                        onChange={this.inputHandler3}
+                        value={this.state.platform}
+                      >
+                        <option value="">Pilih Penyedia Kursus</option>
+                        <option value="buildwithangga">Build With Angga</option>
+                        <option value="Udemy">Udemy</option>
+                        <option value="Coursera">Coursera</option>
+                        <option value="edureka">Edureka</option>
+                      </select>
+                      <select
+                        className="form-input"
+                        id="category"
+                        name="category"
+                        onChange={this.inputHandler2}
+                        value={this.state.category}
+                      >
+                        <option value="">Pilih Kategori</option>
+                        <option value="Mobile Apps">Mobile Apps</option>
+                        <option value="Game Development">
+                          Game Development
+                        </option>
+                        <option value="Cloud Platform">Cloud Platform</option>
+                        <option value="Ethical Hacking">Ethical Hacking</option>
+                        <option value="Full-Stack Web Development">
+                          Full-Stack Web Development
+                        </option>
+                        <option value="Back-End Web Development">
+                          Back-End Web Development
+                        </option>
+                        <option value="DevOps">DevOps</option>
+                        <option value="Computer Network">
+                          Computer Network
+                        </option>
+                        <option value="Front-End Web Development">
+                          Front-End Web Development
+                        </option>
+                        <option value="Machine Learning">
+                          Machine Learning
+                        </option>
+                      </select>
+                      <br></br>
+                      <button
+                        type="submit"
+                        className="button button-primary button-sm"
+                        onClick={this.onSubmitHandler}
+                      >
+                        Cari
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -155,37 +147,39 @@ export default class Daftarkelas extends Component {
               <div className="pricing-inner section-inner has-top-divider">
                 <div className="tiles-wrap">
                   {this.state.kursus.map((list, index) => (
-                    <Card hasShadow>
-                      <div class="pricing-item-content">
-                        <div class="pricing-item-header pb-24 mb-24">
-                          <div class="pricing-item-price mb-4">
+                    <Card key={index} hasShadow>
+                      <div className="pricing-item-content">
+                        <div className="pricing-item-header pb-24 mb-24">
+                          <div className="pricing-item-price mb-4">
                             <span
-                              class="pricing-item-price-amount h1 pricing-switchable"
+                              className="pricing-item-price-amount h1 pricing-switchable"
                               data-pricing-monthly="34"
                               data-pricing-yearly="27"
                             >
                               {list.name}
                             </span>
                           </div>
-                          <div class="text-xs text-color-low">{list.desc}</div>
+                          <div className="text-xs text-color-low">
+                            {list.desc}
+                          </div>
                         </div>
 
-                        <div class="pricing-item-features mb-40">
-                          <div class="pricing-item-features-title h6 text-xs text-color-high mb-24">
+                        <div className="pricing-item-features mb-40">
+                          <div className="pricing-item-features-title h6 text-xs text-color-high mb-24">
                             Platform: {list.platform}
                             <br></br>
                             Kategori: {list.category}
                             <br></br>
                             <br></br>
-                            {
-                              list.feature ? list.feature.map((feature, index) => {
-                                return <div key={index}> {feature} </div>;
-                              }) : ""
-                            }
+                            {list.feature
+                              ? list.feature.map((feature, index) => {
+                                  return <div key={index}> {feature} </div>;
+                                })
+                              : ""}
                           </div>
                         </div>
                       </div>
-                      <div class="pricing-item-cta mb-8">
+                      <div className="pricing-item-cta mb-8">
                         <Link to={`/kelas/${list.id}`}>
                           <Button isPrimary isBlock>
                             Lihat Kelas

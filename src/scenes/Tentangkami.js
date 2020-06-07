@@ -1,5 +1,4 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
 
 import Section from "elements/Section";
 import Header from "parts/Header";
@@ -36,17 +35,13 @@ export default function Tentangkami() {
           <div className="container-sm">
             <div className="hero-inner section-inner">
               <div className="hero-content">
-                <Fade bottom delay={500}>
-                  <h1 className="mt-0 mb-16">Tentang Kami</h1>
-                </Fade>
+                <h1 className="mt-0 mb-16">Tentang Kami</h1>
+
                 <div className="container-xs">
-                  <Fade bottom delay={500}>
-                    <p className="mt-0 mb-32">
-                      Website ini disusun oleh tim Kudu Juara mata kuliah
-                      Semantik Web Prodi S1 Teknik Informatika Universitas
-                      Padjadjaran.
-                    </p>
-                  </Fade>
+                  <p className="mt-0 mb-32">
+                    Website ini disusun oleh tim Kudu Juara mata kuliah Semantik
+                    Web Prodi S1 Teknik Informatika Universitas Padjadjaran.
+                  </p>
                 </div>
               </div>
             </div>
