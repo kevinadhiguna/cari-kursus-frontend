@@ -33,13 +33,13 @@ export default class Hasilpencarian extends Component {
     let name = params.name;
     let platform = params.platform;
     let category = params.category;
-    if (name == "") {
+    if (name === "") {
       name = "-";
     }
-    if (platform == "") {
+    if (platform === "") {
       platform = "-";
     }
-    if (category == "") {
+    if (category === "") {
       category = "-";
     }
     return (
