@@ -43,7 +43,14 @@ export default class Lihatkelas extends Component {
                       <br></br>
                       Kategori: {this.state.kursus.category}
                       <br></br>
+                      <br></br>
+                      {this.state.kursus.feature
+                        ? this.state.kursus.feature.map((feature, index) => {
+                            return <div key={index}> {feature} </div>;
+                          })
+                        : ""}
                     </p>
+
                     <a href={`${this.state.kursus.link}`}>
                       <Button isPrimary>Lihat Kelas</Button>
                     </a>
