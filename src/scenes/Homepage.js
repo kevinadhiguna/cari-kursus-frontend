@@ -120,7 +120,9 @@ class Homepage extends Component {
                         value={this.state.platform}
                       >
                         <option value="">Pilih Penyedia Kursus</option>
-                        <option value="buildwithangga">Build With Angga</option>
+                        <option value="build with angga">
+                          Build With Angga
+                        </option>
                         <option value="Udemy">Udemy</option>
                         <option value="Coursera">Coursera</option>
                         <option value="edureka">Edureka</option>
