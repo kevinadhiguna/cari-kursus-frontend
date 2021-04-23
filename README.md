@@ -39,3 +39,5 @@ Repository Git ini adalah repository Git untuk FrontEnd projek semantik web. Fro
 
 ## Repository BackEnd
 https://github.com/fadillaharsa/cari-kursus-backend
+
+[![Visits Badge](https://badges.pufler.dev/visits/kevinadhiguna/cari-kursus-frontend)](https://github.com/kevinadhiguna)
